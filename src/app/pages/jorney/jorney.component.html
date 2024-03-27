@@ -1,26 +1,44 @@
 <div class="full-screen" (click)="clickJorney()">
-    <div class="typing-animation-div"> 
-        <mat-card *ngIf="jorneyCounter == 0">
-            <mat-card-content>
-                <p class="text"> A jornada começa aqui. </p>
-            </mat-card-content>
-        </mat-card>
-        <mat-card *ngIf="jorneyCounter == 1">
-            <mat-card-content>
-                <p class="text"> Eu sei que é estranho. </p>
-
-            </mat-card-content>
-        </mat-card>
-        <mat-card *ngIf="jorneyCounter == 2">
-            <mat-card-content>
-                <p class="text"> E que você não tem se sentido muito bem. </p>
-            </mat-card-content>
-        </mat-card>
-        <mat-card *ngIf="jorneyCounter == 3">
-            <mat-card-content>
-                <p class="text"> Mas calma </p>
-            </mat-card-content>
-        </mat-card>
+    <div class="typing-animation-div">
+        <div *ngIf="jorneyCounter == 0">
+            <mat-card >
+                <mat-card-content>
+                    <p class="text"> A jornada começa aqui. </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div *ngIf="jorneyCounter == 1">
+            <mat-card>
+                <mat-card-content>
+                    <p class="text"> Eu sei que é estranho. </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div *ngIf="jorneyCounter == 2">
+            <mat-card>
+                <mat-card-content>
+                    <p class="text"> E que você não tem se sentido muito bem. </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div *ngIf="jorneyCounter == 3">
+            <mat-card>
+                <mat-card-content>
+                    <p class="text"> Mas calma </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div *ngIf="jorneyCounter == 4">
+            <mat-card>
+                <mat-card-content>
+                    <p class="text"> Agora poderá descansar</p>
+                </mat-card-content>
+                <button mat-button>Onde estou?</button>
+                
+                <button mat-button>Quem é você?</button>
+            
+            </mat-card>
+        </div>
     </div>
     <div class="back-button" *ngIf="jorneyCounter >= 1">
         <button (click)="backJorney(); $event.stopPropagation()" mat-icon-button>

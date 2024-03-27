@@ -58,6 +58,11 @@
     border-right: none;
   }
 
+  button {
+    background-color: black;
+    font-family: monospace;
+    border: none;
+  }
   @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: white }
