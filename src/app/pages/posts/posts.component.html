@@ -1,0 +1,15 @@
+<div >
+  <mat-card *ngFor="let post of posts">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{post.title}}</mat-card-title>
+        <mat-card-subtitle>{{post.user}}</mat-card-subtitle>
+        <button mat-icon-button (click)="deletePost(post.id)"><mat-icon fontIcon="delete_forever"></mat-icon></button>
+        
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>{{post.content}}</mat-card-content>
+  </mat-card>
+  <button mat-raised-button *ngIf="isLogged()" (click)="navigateToChild()">Novo post</button>
+
+</div>

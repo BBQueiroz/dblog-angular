@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <h2>register</h2>
+            <mat-form-field>
+                <input matInput placeholder="usuario" [(ngModel)]="username" name="username" required>
+                <mat-error>
+                Por favor insira um usuário válido
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Senha" [(ngModel)]="password" name="password" required>
+                <mat-error>
+                Por favor insira uma senha válida
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Repita sua senha" [(ngModel)]="repeatPassword" name="repeatPassword" required>
+                <mat-error>
+                Repita sua senha corretamente
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Registrar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

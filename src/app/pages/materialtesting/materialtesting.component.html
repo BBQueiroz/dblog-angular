@@ -1,0 +1,105 @@
+<div><h1> Typography</h1></div>
+<div>
+    <div class="mat-headline-4">display 4</div>
+    <div class="mat-headline-3">display 3</div>
+    <div class="mat-headline-2">display 2</div>
+    <div class="mat-headline-1">display 1</div>
+</div>
+<div>
+    <div class="mat-h1"> heading 1</div>
+    <div class="mat-h2">title</div>
+    <div class="mat-h3">this h3</div>
+    <div class="mat-body-1">this h4</div>
+    <h4>h4</h4>
+
+    <p> Clean test h4</p>
+</div>
+<div class="mat-body">This is body text</div>
+<div class="mat-body-strong">This is bold body text</div>
+<div class="mat-small">This is caption text</div>
+
+<div class="mat-typography">
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+</div>
+
+<div><div class="mat-h1">Button</div></div>
+<div>
+    <button mat-button>Click me!</button>
+    <button mat-raised-button>Click me!</button>
+    <button mat-flat-button>Click me!</button>
+    <button mat-stroked-button>Click me!</button>
+</div>
+
+<div>
+    <button mat-icon-button>Icon</button>
+    <button mat-fab>Fav</button>
+    <button mat-mini-fab>Minifab</button>
+</div>
+
+<div>
+    <button color="primery"mat-button>Click me!</button>
+    <button color="accent" mat-button>Click me!</button>
+    <button color="warn" mat-button>Click me!</button>
+</div>
+
+<div>
+    <button color="primery" disableRipple mat-button>Click me!</button>
+    <button color="accent" disableRipple mat-button>Click me!</button>
+    <button color="warn" disableRipple mat-button>Click me!</button>
+</div>
+
+<div>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" #toggleGroup="matButtonToggleGroup" multiple>
+        <mat-button-toggle #toggleBtn value="bold">Bold</mat-button-toggle>
+        <mat-button-toggle value="italic">Italic</mat-button-toggle>
+        <mat-button-toggle value="underline">Underline</mat-button-toggle>
+      </mat-button-toggle-group>
+      {{toggleBtn.checked}}
+      {{toggleGroup.value}}
+</div>
+<div>
+    <mat-icon>grade</mat-icon>
+    <mat-icon color="primary">grade</mat-icon>
+    <mat-icon color="accent">grade</mat-icon>
+    <mat-icon color="warn">grade</mat-icon>
+
+</div>
+
+<div>
+    <span [matBadge]="notifications" matBadgeSize="small" [matBadgeHidden]="notifications == 0">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgePosition="below before" matBadgeSize="small">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgePosition="below after" matBadgeSize="medium">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgePosition="above before" matBadgeSize="large">Notifications</span>
+</div>
+
+<div>
+    <mat-progress-spinner value="45"></mat-progress-spinner>
+</div>
+
+<div>
+    <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    <button (click)="loadData()">Load Data</button>
+
+
+</div>
+
+<div>
+    <mat-card>
+        <mat-card-header color="warn">
+            <mat-card-title-group>
+                <mat-card-title>Primeiro post</mat-card-title>
+                <mat-card-subtitle>Eu q fiz</mat-card-subtitle>
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>PRimeiro post meu é isso camarada eu estou aqui rimando nessa parada e eu vou rimar meu mano porque isso é muito foda, se tu não gostou pode vim chupa minhas bola</mat-card-content>
+    </mat-card>
+</div>

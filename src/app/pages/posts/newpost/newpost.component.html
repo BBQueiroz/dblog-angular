@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-content>
+        <form #postForm="ngForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-form-field>
+                    <div class="mat-h2">Novo post</div>
+                    <input matInput placeholder="Título" [(ngModel)]="title" name="username">
+                    <mat-error>
+                    Por favor insira um usuário válido
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea matInput  placeholder="Conteúdo" [(ngModel)]="content" name="content"></textarea>
+                    <mat-error>
+                    Por favor insira um usuário válido
+                    </mat-error>
+                </mat-form-field>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Postar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

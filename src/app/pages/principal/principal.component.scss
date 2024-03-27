@@ -1,0 +1,18 @@
+// Centering container
+.center-container {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100vh; /* Full viewport height */
+  }
+  
+  // Content inside the centered container
+  .centered-content {
+    text-align: center; /* Optionally center text */
+    max-width: 80%; /* Optional: Limit width */
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
