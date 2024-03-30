@@ -29,6 +29,6 @@ export class RegisterComponent {
 
     var response = this.authService.register(this.username, this.password, this.repeatPassword, this.role);
     console.log(response);
-    //this.router.navigate(['posts']);
+    this.router.navigate(['/blog/posts']);
   }
 }
