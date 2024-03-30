@@ -38,7 +38,7 @@ export class PostService {
   newPost(title: string, content: string){
     const headers = this.buildHeadersWithToken();
     const body = { title, content};
-    const req = this.http.post<Posts>('http://localhost:8080/posts', body, { headers });
+    const req = this.http.post<Posts>('https://dblog-backend.onrender.com/posts', body, { headers });
     req.subscribe({
       next: data => console.log('post publicado', data.title),
       error: err => console.log('Erro ao publicar', err, body)
@@ -47,7 +47,7 @@ export class PostService {
 
   deletePost(postId: string){
     const headers = this.buildHeadersWithToken();
-    const deleteUrl = `http://localhost:8080/posts/${postId}`; // URL da API para excluir o post
+    const deleteUrl = `https://dblog-backend.onrender.com/posts/${postId}`; // URL da API para excluir o post
     const req = this.http.delete(deleteUrl, { headers });
     req.subscribe({
       next: () => {console.log('deletado'); this.getPosts();},
