@@ -20,7 +20,7 @@ export class PostService {
 
   getPosts(): Observable<Posts[]>{
         
-    return this.http.get<Posts[]>('http://localhost:8080/posts').pipe(catchError(error => this.handleError(error)));;
+    return this.http.get<Posts[]>('https://dblog-backend.onrender.com/posts').pipe(catchError(error => this.handleError(error)));;
   }
 
   private handleError(error: HttpErrorResponse) {
