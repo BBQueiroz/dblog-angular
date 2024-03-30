@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Token } from './../_interfaces/token';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,10 +9,11 @@ import { User } from '../_interfaces/User';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   public logout(){
     sessionStorage.removeItem('token');
+    this.router.navigate([""]);
   }
 
   getCurrentToken(){
