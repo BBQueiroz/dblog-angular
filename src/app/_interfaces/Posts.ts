@@ -5,5 +5,6 @@ export interface Posts{
     title: string;
     content: Text;
     histPost: Date[];
+    parent: Posts;
 
 }

@@ -13,6 +13,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PostsComponent implements OnInit {
   posts: Posts[] = [];
+  showComments = false;
+
   
 
   constructor(public dialog: MatDialog, private postService : PostService, private authService :AuthService, private router: Router){}
@@ -29,6 +31,9 @@ export class PostsComponent implements OnInit {
     });
     this.loadPosts();
   }
+  toggleComments(){
+    this.showComments = !this.showComments;
+  }
 
   loadPosts(){
 
@@ -36,7 +41,7 @@ export class PostsComponent implements OnInit {
       this.posts = posts;
     })
   }
-  isLogged():boolean{
+  isPostOwned():boolean{
     return this.authService.isLoggedIn();
   }
 

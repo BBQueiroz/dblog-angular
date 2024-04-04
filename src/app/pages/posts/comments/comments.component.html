@@ -1,0 +1,26 @@
+<div>
+    <mat-card *ngFor="let post of posts">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-subtitle>{{post.user}}</mat-card-subtitle>
+          
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>    
+        {{post.content}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-content>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                <input matInput placeholder="Comentário" [(ngModel)]="content" name="password" required>
+                <mat-error>
+                    Please provide a valid password
+                </mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Post</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+  </div>

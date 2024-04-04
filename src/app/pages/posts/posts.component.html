@@ -8,8 +8,16 @@
         
       </mat-card-title-group>
     </mat-card-header>
-    <mat-card-content>{{post.content}}</mat-card-content>
+    <mat-card-content>{{post.content}}
+    <br>
+    <button mat-button class="comments" (click)="toggleComments()">Comentários</button>
+    <br>
+    <div *ngIf="showComments" class="comments-section" >
+      <app-comments [parent]="post"></app-comments>
+    </div>
+
+    </mat-card-content>
   </mat-card>
-  <button mat-raised-button *ngIf="isLogged()" (click)="navigateToChild()">Novo post</button>
+  <button mat-raised-button *ngIf="isPostOwned()" (click)="navigateToChild()">Novo post</button>
 
 </div>

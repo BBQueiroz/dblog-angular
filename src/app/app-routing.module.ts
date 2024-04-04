@@ -9,6 +9,7 @@ import { NewpostComponent } from './pages/posts/newpost/newpost.component';
 import { MaterialtestingComponent } from './pages/materialtesting/materialtesting.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { blogGuard } from './guards/blog.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: PrincipalComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
       },
       {path: 'newPost', component: NewpostComponent},
       {path: 'material', component: MaterialtestingComponent},
+      {path: 'profile', component: ProfileComponent},
     ]
   }
 ];

@@ -14,6 +14,9 @@ import { JorneyComponent } from './pages/jorney/jorney.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './material/material.module';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { CreateJourneyComponent } from './pages/jorney/create-journey/create-journey.component';
+import { CommentsComponent } from './pages/posts/comments/comments.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     RegisterComponent,
     NewpostComponent,
     JorneyComponent,
+    CreateJourneyComponent,
+    CommentsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
