@@ -34,6 +34,9 @@ export class PostsComponent implements OnInit {
     this.showComments = !this.showComments;
   }
 
+  changeLike(id: string){
+    this.postService.changeLike(id);
+  }
   loadPosts(){
 
     this.postService.getPosts().subscribe(posts => {
