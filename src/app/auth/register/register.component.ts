@@ -13,7 +13,7 @@ export class RegisterComponent {
   public username = '';
   public password = '';
   public repeatPassword = '';
-  public role = 'USER';
+  public role = 'ADMIN';
   
   constructor(private authService: AuthService, private router: Router) { }
 
