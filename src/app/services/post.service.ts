@@ -55,6 +55,16 @@ export class PostService {
     });
   }
 
+  changeLike(id: string){
+    const headers = this.buildHeadersWithToken();
+    const body = { id };
+    const req = this.http.post<Posts>(`https://dblog-backend.onrender.com/${id}`, body, { headers });
+    req.subscribe({
+      next: data => console.log('post publicado', data.title),
+      error: err => console.log('Erro ao publicar', err, body)
+    });
+  }
+
   
   newComment(content: string, parent: string ){
     const headers = this.buildHeadersWithToken();
