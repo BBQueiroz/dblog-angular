@@ -32,6 +32,8 @@ export class CommentsComponent {
 
   onSubmit(){
     this.postService.newComment(this.content, this.parent.id);
+    this.posts = [];
+    this.loadComments(this.parent.id);
   }
 
 }

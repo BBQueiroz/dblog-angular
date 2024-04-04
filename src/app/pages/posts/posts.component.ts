@@ -15,8 +15,6 @@ export class PostsComponent implements OnInit {
   posts: Posts[] = [];
   showComments = false;
 
-  
-
   constructor(public dialog: MatDialog, private postService : PostService, private authService :AuthService, private router: Router){}
 
   ngOnInit(): void {
@@ -29,6 +27,7 @@ export class PostsComponent implements OnInit {
       height: '400px',
       width: '600px',
     });
+    this.posts = [];
     this.loadPosts();
   }
   toggleComments(){
