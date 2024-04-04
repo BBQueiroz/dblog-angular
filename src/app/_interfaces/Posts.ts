@@ -6,5 +6,5 @@ export interface Posts{
     content: Text;
     histPost: Date[];
     parent: Posts;
-
+    qtd_likes: number;
 }
