@@ -58,7 +58,7 @@ export class PostService {
   changeLike(id: string){
     const headers = this.buildHeadersWithToken();
     const body = { id };
-    const req = this.http.post<Posts>(`https://dblog-backend.onrender.com/${id}/like`, body, { headers });
+    const req = this.http.post<Posts>(`https://dblog-backend.onrender.com/posts/${id}/like`, body, { headers });
     req.subscribe({
       next: data => console.log('post publicado', data.title),
       error: err => console.log('Erro ao publicar', err, body)
