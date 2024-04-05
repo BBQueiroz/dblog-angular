@@ -47,7 +47,7 @@ export class PostsComponent implements OnInit {
     this.postService.getPosts().subscribe(posts => {
       this.posts = posts;
       posts.forEach(post => {
-        console.log(post.title, post.qtd_likes);
+        console.log(post.title, post.likes_list);
 
     })
     });
