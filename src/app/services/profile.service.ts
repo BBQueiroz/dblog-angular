@@ -30,7 +30,7 @@ export class ProfileService {
     const login = this.authService.getUserLogin();
     // const req = this.http.post<Posts>('https://dblog-backend.onrender.com/posts', body, { headers });
     console.log(headers);
-    const req = this.http.put<profile>(`https://dblog-backend.onrender.com/profile/${login}`, body, { headers });
+    const req = this.http.post<profile>(`https://dblog-backend.onrender.com/profile/${login}`, body, { headers });
     req.subscribe({
       next: data => console.log('Usuario atualizado', data),
       error: err => console.log('Erro ao atualizar usuário', err, body)
