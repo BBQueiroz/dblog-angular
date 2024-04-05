@@ -22,9 +22,7 @@ export class PostsComponent implements OnInit {
     
     this.loadPosts();
 
-    this.posts.forEach(post => {
-      console.log(post.title, post.qtd_likes); // Exemplo de uso dentro de um loop
-    });
+    
 
 
   }
@@ -48,7 +46,12 @@ export class PostsComponent implements OnInit {
 
     this.postService.getPosts().subscribe(posts => {
       this.posts = posts;
+      posts.forEach(post => {
+        console.log(post.title, post.qtd_likes);
+
     })
+    });
+
   }
   isPostOwned():boolean{
     return this.authService.isLoggedIn();
