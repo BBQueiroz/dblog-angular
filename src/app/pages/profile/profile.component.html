@@ -2,23 +2,26 @@
     <mat-card-content>
         <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
             <mat-form-field>
-                <input matInput placeholder="Nickname" [(ngModel)]="profile.nickname" name="nickname" required>
+                <input matInput placeholder="Nickname" [(ngModel)]="profile.nickname" name="profile.nickname" required>
                 <mat-error>
                 Por favor insira um nick válido
                 </mat-error>
             </mat-form-field>
+            <br><br>
             <mat-form-field>
-                <input matInput placeholder="Email" type="email" [(ngModel)]="profile.email" name="email" required>
+                <input matInput placeholder="Email" type="email" [(ngModel)]="profile.email" name="profile.email" required>
                 <mat-error>
                 Por favor insira um email válido
                 </mat-error>
             </mat-form-field>
+            <br><br>
             <mat-form-field>
-                <input matInput placeholder="Aniversário" type="date" [(ngModel)]="profile.birthday" name="birthday" required>
+                <input matInput placeholder="Aniversário" type="date" [(ngModel)]="profile.birthday" name="profile.birthday" required>
                 <mat-error>
                 Informe sua data de aniversário
                 </mat-error>
             </mat-form-field>
+            <br><br>
             <button mat-raised-button color="primary" type="submit">Registrar</button>
         </form>
     </mat-card-content>
