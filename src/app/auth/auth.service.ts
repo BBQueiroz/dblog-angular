@@ -3,17 +3,25 @@ import { Token } from './../_interfaces/token';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../_interfaces/User';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(private http: HttpClient, private router: Router) { }
 
   public logout(){
     sessionStorage.removeItem('token');
     this.router.navigate([""]);
+  }
+
+  getUserDetails(){
+    const token = sessionStorage.getItem('token');
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      console.log(decodedToken);
+    }
   }
 
   getCurrentToken(){
@@ -28,6 +36,7 @@ export class AuthService {
       next: data => sessionStorage.setItem('token', data.token),
       error: err => console.log('Usuário não encontrado', err, body)
     });
+    
   }
   register(login: string, password: string, confPassword: string, role : string){
     if (password != confPassword){
