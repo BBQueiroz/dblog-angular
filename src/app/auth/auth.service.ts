@@ -16,13 +16,17 @@ export class AuthService {
     this.router.navigate([""]);
   }
 
-  getUserDetails(){
+  getUserLogin(){
     const token = sessionStorage.getItem('token');
     if (token) {
       const decodedToken: any = jwtDecode(token);
       console.log(decodedToken);
+
+      return decodedToken.sub;
     }
-  }
+
+  } 
+  
 
   getCurrentToken(){
     return sessionStorage.getItem('token');
