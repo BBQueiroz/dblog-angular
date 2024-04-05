@@ -5,6 +5,7 @@ import { AuthService } from '../../auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewpostComponent } from './newpost/newpost.component';
 import { MatDialog } from '@angular/material/dialog';
+import { User } from '../../_interfaces/User';
 
 @Component({
   selector: 'app-posts',
@@ -20,6 +21,12 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     
     this.loadPosts();
+
+    this.posts.forEach(post => {
+      console.log(post.title, post.qtd_likes); // Exemplo de uso dentro de um loop
+    });
+
+
   }
 
   navigateToChild(): void {
@@ -46,6 +53,7 @@ export class PostsComponent implements OnInit {
   isPostOwned():boolean{
     return this.authService.isLoggedIn();
   }
+
 
   deletePost(id: string){
     this.postService.deletePost(id);

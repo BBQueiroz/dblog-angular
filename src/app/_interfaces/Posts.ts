@@ -1,3 +1,4 @@
+import { User } from "./User";
 
 export interface Posts{
     id: string;
@@ -7,4 +8,5 @@ export interface Posts{
     histPost: Date[];
     parent: Posts;
     qtd_likes: number;
+    likes_list: User[];
 }
