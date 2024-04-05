@@ -8,7 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-  profile!: profile;
+  profile: profile = {
+    id: '',
+    nickname: '',
+    birthday: new Date(),
+    biography: '',
+    email: '',
+    };
   constructor(private profileService: ProfileService){
 
   }
@@ -24,7 +30,9 @@ export class ProfileComponent {
     });
   }
 
+
+
   onSubmit(){
-    
+    this.profileService.saveUser(this.profile);
   }
 }
