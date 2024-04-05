@@ -11,7 +11,7 @@ export class ProfileComponent {
   profile: profile = {
     id: '',
     nickname: '',
-    birthday: new Date('yyyy-MM-dd'),
+    birthday: new Date(),
     biography: '',
     email: '',
     };
