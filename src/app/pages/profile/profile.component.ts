@@ -15,7 +15,9 @@ export class ProfileComponent {
     biography: '',
     email: '',
     };
-  constructor(private profileService: ProfileService){  }
+  constructor(private profileService: ProfileService){
+
+  }
 
   ngOnInit(){
     this.loadProfile();
