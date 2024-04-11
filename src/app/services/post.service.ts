@@ -1,14 +1,15 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Injectable, PLATFORM_ID } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Posts } from '../_interfaces/Posts';
 import { AuthService } from '../auth/auth.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-
+  apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -20,15 +21,13 @@ export class PostService {
 
   getPosts(): Observable<Posts[]>{
         
-    // return this.http.get<Posts[]>('https://dblog-backend.onrender.com/posts').pipe(catchError(error => this.handleError(error)));
-
-    return this.http.get<Posts[]>('https://dblog-backend.onrender.com/posts').pipe(catchError(error => this.handleError(error)));
+        return this.http.get<Posts[]>(`${this.apiUrl}/posts`).pipe(catchError(error => this.handleError(error)));
   }
 
   getComments(parentId : string): Observable<Posts[]>{
     const headers = this.buildHeadersWithToken();
     console.log('https://dblog-backend.onrender.com/posts/' + parentId + "/comments");
-    return this.http.get<Posts[]>(`https://dblog-backend.onrender.com/posts/${parentId}/comments`, { headers }).pipe(catchError(error => this.handleError(error)));
+    return this.http.get<Posts[]>(`${this.apiUrl}/posts/${parentId}/comments`, { headers }).pipe(catchError(error => this.handleError(error)));
   
   }
   private handleError(error: HttpErrorResponse) {
@@ -48,7 +47,7 @@ export class PostService {
     const body = { title, content };
     // const req = this.http.post<Posts>('https://dblog-backend.onrender.com/posts', body, { headers });
     console.log(headers);
-    const req = this.http.post<Posts>('https://dblog-backend.onrender.com/posts', body, { headers });
+    const req = this.http.post<Posts>(`${this.apiUrl}/posts`, body, { headers });
     req.subscribe({
       next: data => console.log('post publicado', data.title),
       error: err => console.log('Erro ao publicar', err, body)
@@ -57,7 +56,7 @@ export class PostService {
 
   changeLike(id: string){
     const headers = this.buildHeadersWithToken();
-    const req = this.http.post<Posts>(`https://dblog-backend.onrender.com/posts/${id}/like`, {}, { headers });
+    const req = this.http.post<Posts>(`${this.apiUrl}/posts/${id}/like`, {}, { headers });
     req.subscribe({
       next: data => console.log('Like dado em', data.title),
       error: err => console.log('Erro ao publicar', err)
@@ -70,7 +69,7 @@ export class PostService {
     const title = "Comentário em " + parent;
     const body = { title, content, parent };
     console.log(body);
-    const req = this.http.post<Posts>('https://dblog-backend.onrender.com/posts', body, { headers });
+    const req = this.http.post<Posts>(`${this.apiUrl}/posts`, body, { headers });
     //const req = this.http.post<Posts>('http://localhost:8080/posts', body, { headers });
     req.subscribe({
       next: data => console.log('post publicado', data.parent),
@@ -80,7 +79,7 @@ export class PostService {
 
   deletePost(postId: string){
     const headers = this.buildHeadersWithToken();
-    const deleteUrl = `https://dblog-backend.onrender.com/posts/${postId}`;
+    const deleteUrl = `${this.apiUrl}/posts/${postId}`;
     const req = this.http.delete(deleteUrl, { headers });
     req.subscribe({
       next: () => {console.log('deletado'); this.getPosts();},

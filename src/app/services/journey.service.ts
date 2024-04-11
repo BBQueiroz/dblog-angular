@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Observable, catchError, throwError } from 'rxjs';
 import { JourneyNode } from '../_interfaces/JourneyNode';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JourneyService {
-
+  apiUrl = environment.apiUrl;
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   private buildHeadersWithToken() {
@@ -18,15 +19,15 @@ export class JourneyService {
   }
 
   getAllJourneyRoots(): Observable<JourneyNode[]>{   
-    return this.http.get<JourneyNode[]>('https://localhost:8080/journey').pipe(catchError(error => this.handleError(error)));;
+    return this.http.get<JourneyNode[]>(`${this.apiUrl}/journey`).pipe(catchError(error => this.handleError(error)));;
   }
   
   getAllJourney(id: String): Observable<JourneyNode[]>{
-    return this.http.get<JourneyNode[]>('https://localhost:8080/journey/' + id).pipe(catchError(error => this.handleError(error)));
+    return this.http.get<JourneyNode[]>(`${this.apiUrl}/journey/${id}`).pipe(catchError(error => this.handleError(error)));
   }
 
   getOneJourney(rootId: string, id:string):Observable<JourneyNode>{
-    return this.http.get<JourneyNode>('http://localhost:8080/' + rootId + "/" + id).pipe(catchError(error => this.handleError(error)));
+    return this.http.get<JourneyNode>(`${this.apiUrl}/journey/${rootId}/${id}`).pipe(catchError(error => this.handleError(error)));
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -44,7 +45,7 @@ export class JourneyService {
   newJourney(text: string){
     const headers = this.buildHeadersWithToken();
     const body = {text};
-    const req = this.http.post<JourneyNode>('https://localhost:8080/journey', body, { headers });
+    const req = this.http.post<JourneyNode>(`${this.apiUrl}/journey/`, body, { headers });
     req.subscribe({
       next: data => console.log('post publicado', data.id),
       error: err => console.log('Erro ao publicar', err, body)
@@ -54,7 +55,7 @@ export class JourneyService {
   newJourneyNode(text:string, root: JourneyNode, parent: JourneyNode){
     const headers = this.buildHeadersWithToken();
     const body = {text, root, parent};
-    const req = this.http.post<JourneyNode>('https://localhost:8080/journey', body, { headers });
+    const req = this.http.post<JourneyNode>(`${this.apiUrl}/journey/`, body, { headers });
     req.subscribe({
       next: data => console.log('post publicado', data.id),
       error: err => console.log('Erro ao publicar', err, body)
