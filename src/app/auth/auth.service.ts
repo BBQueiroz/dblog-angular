@@ -37,7 +37,7 @@ export class AuthService {
   authenticate(login: string, password: string) {
     const body = { login, password };
   
-    const req = this.http.post<Token>(`${this.apiUrl}`, body);
+    const req = this.http.post<Token>(`${this.apiUrl}/auth/login`, body);
     req.subscribe({
       next: data => sessionStorage.setItem('token', data.token),
       error: err => console.log('Usuário não encontrado', err, body)
